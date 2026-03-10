@@ -73,16 +73,19 @@ export const Checkout = () => {
 
     try {
       const orderData = {
-        items: cartItems.map((item) => ({
-          name: item.name || item.productId?.name,
-          quantity: item.quantity,
-          price: item.price || item.productId?.price,
-          image: item.image || item.productId?.image,
-        })),
+        items: cartItems
+          .map((item) => ({
+            name: item?.name || item?.productId?.name,
+            quantity: item.quantity,
+            price: item?.price || item?.productId?.price,
+            image: item?.image || item?.productId?.image,
+          }))
+          .filter((item) => item.name && item.price),
         totalPrice: total,
         shippingAddress: `${address.fullName}, ${address.address}, ${address.city}, ${address.state} - ${address.postalCode}`,
         paymentMethod,
       };
+
       console.log(orderData);
       const response = await axios.post(`${API_URL}/api/orders`, orderData, {
         headers: {
