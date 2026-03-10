@@ -83,7 +83,7 @@ export const Checkout = () => {
         shippingAddress: `${address.fullName}, ${address.address}, ${address.city}, ${address.state} - ${address.postalCode}`,
         paymentMethod,
       };
-
+      console.log(orderData);
       const response = await axios.post(`${API_URL}/api/orders`, orderData, {
         headers: {
           "Content-Type": "application/json",
