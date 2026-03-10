@@ -74,10 +74,10 @@ export const Checkout = () => {
     try {
       const orderData = {
         items: cartItems.map((item) => ({
-          name: item.productId?.name,
+          name: item.name || item.productId?.name,
           quantity: item.quantity,
-          price: item.productId?.price,
-          image: item.productId?.image,
+          price: item.price || item.productId?.price,
+          image: item.image || item.productId?.image,
         })),
         totalPrice: total,
         shippingAddress: `${address.fullName}, ${address.address}, ${address.city}, ${address.state} - ${address.postalCode}`,
