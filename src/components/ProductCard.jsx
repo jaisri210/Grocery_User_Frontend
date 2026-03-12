@@ -25,7 +25,7 @@ export const ProductCard = ({ product }) => {
 
       navigate("/checkout");
     } catch (err) {
-      console.error("FULL ERROR OBJECT:", err); // 👈 This tells you the truth
+      console.error("FULL ERROR OBJECT:", err);
       toast.error(
         err.response?.data?.message || "Process failed. Check console.",
       );
