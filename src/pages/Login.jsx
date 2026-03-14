@@ -27,7 +27,7 @@ export const Login = () => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user", JSON.stringify(response.data.user));
-
+        console.log(response.data.user, response.data.token);
         if (response.data.user.role === "admin") {
           navigate("/admin-dashboard");
         } else {
