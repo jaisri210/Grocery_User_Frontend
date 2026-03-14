@@ -195,7 +195,7 @@ export const Checkout = () => {
               <div className="flex justify-between">
                 <span>Delivery</span>
                 <span>
-                  {shipping === 0 ? "Free" : `₹${shipping.toFixed(2)}`}
+                  {shipping === 0 ? "Free" : `$${shipping.toFixed(2)}`}
                 </span>
               </div>
 
